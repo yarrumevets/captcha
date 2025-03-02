@@ -4,7 +4,7 @@ const userInput = document.getElementById("user-input");
 const captchaImage = document.getElementById("captcha-image");
 
 let captchaId = "";
-const IMAGE_INTERVAL = 29_000; // set to a longer interval on backend (30 seconds)
+const IMAGE_INTERVAL = 8_000;
 
 submitButton.addEventListener("click", () => {
   fetch("/api/guess", {
@@ -24,8 +24,18 @@ submitButton.addEventListener("click", () => {
 });
 
 const getImage = (previousId) => {
-  // Return the current captchaId so it can be removed.
-  const url = previousId ? `/api/image?captchaId=${previousId}` : `/api/image`;
+  const backgroundColor = "CCF";
+  const textColor = "F04";
+  const timeout = IMAGE_INTERVAL;
+  const noise = 3.8;
+  const textLength = 3; // 4 to 8
+  let url = `/api/image?backgroundColor=${backgroundColor}&textColor=${textColor}&timeout=${timeout}&noise=${noise}&textLength=${textLength}`;
+
+  if (previousId) {
+    // Pass current ID so it can be removed on the server.
+    url += `&captchaId=${previousId}`;
+  }
+
   fetch(url)
     .then((response) => {
       captchaId = response.headers.get("X-Captcha-Id");
