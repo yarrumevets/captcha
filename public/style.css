@@ -1,0 +1,32 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+  background-color: #eee;
+  width: 100%;
+  margin: 0;
+  padding: 2vw 0;
+  text-align: center;
+  margin-bottom: 2vw;
+}
+
+#captcha-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+}
+
+#captcha-image {
+  width: 256px;
+  height: 64px;
+  border: 1px solid #999;
+  background-color: #666;
+  text-align: center;
+}
