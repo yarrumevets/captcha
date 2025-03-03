@@ -81,6 +81,7 @@ const handleCaptchaRequest = async (req, res) => {
     res.setHeader("X-Captcha-Id", captchaId);
     res.send(buffer);
   } catch (err) {
+    console.error("Error generating CAPTCHA: ", err);
     res.status(500).send("Error generating CAPTCHA");
   }
 };
