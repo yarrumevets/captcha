@@ -25,6 +25,17 @@ A Node.js captcha service
 
 Step-by-step instructions on how to get the development environment running.
 
+Install graphicsmagick:
+
+```bash
+gm -version
+# If installed alreay, skip to cloning the repo.
+sudo apt update
+sudo apt install graphicsmagick
+```
+
+Clone and install the repo:
+
 ```bash
 git clone https://github.com/yarrumevets/captcha.git
 cd captcha
